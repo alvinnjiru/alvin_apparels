@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav">
                     <Link className="nav-link" to="/">Home</Link>
-                    {user !== null && user.username === "admin" ? (
+                    {user !== null && user.role === "admin" ? (
                         <Link className="nav-link" to="/addproducts">Add products</Link>) : ("")}
                     <Link className="nav-link" to="/aboutus">About us</Link>
                 </div>
