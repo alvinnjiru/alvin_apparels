@@ -49,6 +49,10 @@ const GetProductsComponent = () => {
 
                 setShoes(shoes_products);
 
+                let fulloutfits_products = response.data.filter((product) => product.product_category === "fulloutfits")
+
+                setFullOutfits(fulloutfits_products)
+
 
 
             }
@@ -69,9 +73,9 @@ const GetProductsComponent = () => {
 
             { /*map/loop over the products array to acces one at a time */}
 
-            <h2 className="text-center my-2 p-4 bg-dark text-white">Tshirts</h2>
-            {tshirts.map((product) => (
-                <div className="col-md-3 justify-content-center mb-4">
+            <h2 className="text-center my-2 p-4 bg-dark text-white">404 Merchandise</h2>
+            {merch.map((product) => (
+                <div className="col-md-4 justify-content-center mb-4">
                     <div className="card shadow card-margin">
                         <img src={img_url + product.product_image} alt="" className="product_img mt-4" />
 
@@ -87,6 +91,22 @@ const GetProductsComponent = () => {
 
 
             <h2 className="text-center my-2 p-4 bg-dark text-white">Trousers</h2>
+            {tshirts.map((product) => (
+                <div className="col-md-3 justify-content-center mb-4">
+                    <div className="card shadow card-margin">
+                        <img src={img_url + product.product_image} alt="" className="product_img mt-4" />
+
+                        <div className="card-body">
+                            <h5 className="mt-2">{product.product_name}</h5>
+                            <b className="text-warning">{product.product_cost}Ksh</b>
+                            <br />
+                            <button className="btn btn-dark" onClick={() => { navigator("/makepayment", { state: { product } }) }}>Purchase now</button>
+                        </div>
+                    </div>
+                </div>
+            ))}
+
+            <h2 className="text-center my-2 p-4 bg-dark text-white">404merch</h2>
             {trousers.map((product) => (
                 <div className="col-md-4 justify-content-center mb-4">
                     <div className="card shadow card-margin">
@@ -102,9 +122,9 @@ const GetProductsComponent = () => {
                 </div>
             ))}
 
-            <h2 className="text-center my-2 p-4 bg-dark text-white">404merch</h2>
-            {merch.map((product) => (
-                <div className="col-md-3 justify-content-center mb-4">
+            <h2 className="text-center my-2 p-4 bg-dark text-white">Shoes</h2>
+            {shoes.map((product) => (
+                <div className="col-md-4 justify-content-center mb-4">
                     <div className="card shadow card-margin">
                         <img src={img_url + product.product_image} alt="" className="product_img mt-4" />
 
@@ -118,6 +138,21 @@ const GetProductsComponent = () => {
                 </div>
             ))}
 
+            <h2 className="text-center my-2 p-4 bg-dark text-white">Full Outfits</h2>
+            {fulloutfits.map((product) => (
+                <div className="col-md-6 justify-content-center mb-4">
+                    <div className="card shadow card-margin">
+                        <img src={img_url + product.product_image} alt="" className="product_img mt-4" />
+
+                        <div className="card-body">
+                            <h5 className="mt-2">{product.product_name}</h5>
+                            <b className="text-warning">{product.product_cost}Ksh</b>
+                            <br />
+                            <button className="btn btn-dark" onClick={() => { navigator("/makepayment", { state: { product } }) }}>Purchase now</button>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
