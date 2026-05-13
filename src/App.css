@@ -42,7 +42,134 @@
 }
 
 .product_img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: 200px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* --- Modern Redesign Styles --- */
+
+.hero-section {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../public/aa.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 45vh;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  opacity: 0.9;
+}
+
+.search-container {
+  max-width: 700px;
+  margin: 2rem auto 3rem auto;
+  position: relative;
+  z-index: 10;
+}
+
+.search-pill {
+  border-radius: 50px !important;
+  padding: 1rem 1.5rem !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+  font-size: 1.1rem !important;
+  transition: all 0.3s ease;
+}
+
+.search-pill:focus {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.elegant-header {
+  font-weight: 700;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.elegant-header::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background-color: #e74c3c;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.modern-card {
+  border: none !important;
+  border-radius: 1rem !important;
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  overflow: hidden;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modern-card-body {
+  padding: 1.5rem !important;
+}
+
+.btn-pill {
+  border-radius: 50px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+}
+
+.btn-icon-pill {
+  border-radius: 50px !important;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease !important;
+}
+
+.btn-icon-pill:hover {
+  transform: scale(1.1);
 }

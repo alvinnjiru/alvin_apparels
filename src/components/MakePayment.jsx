@@ -7,43 +7,77 @@ const MakePayment = () => {
     const { product } = useLocation().state || {}
     console.log(product);
 
-    const img_url = "https://kmuturi.alwaysdata.net/static/images/"
+    const img_url = "https://alvinnjiru.alwaysdata.net/static/images/"
 
     let [phone, setPhone] = useState("");
     let [loading, setLoading] = useState("");
     let [error, setError] = useState("");
     let [success, setSuccess] = useState("");
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     setError("")
+    //     setSuccess("");
+    //     setLoading("Please wait...")
+
+    //     try {
+    //         const data = new FormData()
+    //         data.append("amount", product.product_cost);
+    //         data.append("phone", phone);
+
+    //         const response = await axios.post("https://alvinnjiru.alwaysdata.net/api/mpesa_payment", data)
+    //         console.log(response)
+
+    //         if (response.status === 200) {
+    //             setLoading("")
+    //             setSuccess(response.data.message)
+    //             setPhone("")
+    //         }
+    //     } catch (error) {
+    //         setLoading("")
+    //         setError(error.message);
+    //     }
+    // }
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        setError("")
+        if (phone.length !== 10) {
+            alert("Phone number must contain exactly 10 digits");
+            return;
+        }
+
+        setError("");
         setSuccess("");
-        setLoading("Please wait...")
+        setLoading("Please wait...");
 
         try {
-            const data = new FormData()
+            const data = new FormData();
             data.append("amount", product.product_cost);
             data.append("phone", phone);
 
-            const response = await axios.post("https://kmuturi.alwaysdata.net/api/mpesa_payment", data)
-            console.log(response)
+            const response = await axios.post(
+                "https://alvinnjiru.alwaysdata.net/api/mpesa_payment",
+                data
+            );
+
+            console.log(response);
 
             if (response.status === 200) {
-                setLoading("")
-                setSuccess(response.data.message)
-                setPhone("")
+                setLoading("");
+                setSuccess(response.data.message);
+                setPhone("");
             }
         } catch (error) {
-            setLoading("")
+            setLoading("");
             setError(error.message);
         }
-    }
+    };
 
 
     return (
         <div className="row justify-content-center mt-4">
-            <Navbar/>
+            <Navbar />
             <h2>LIPA NA MPESA</h2>
             <div className="col-md-3">
                 <img src={img_url + product.product_image}
@@ -80,9 +114,10 @@ const MakePayment = () => {
                         type="tel"
                         className="form-control"
                         required
-                        placeholder="Enter MPESA no:2547XXXXXXXX"
+                        placeholder="Enter MPESA no:07XXXXXXXX"
                         onChange={(e) => { setPhone(e.target.value) }}
                         value={phone}
+                        maxLength={10}
 
                     />
                     <br />

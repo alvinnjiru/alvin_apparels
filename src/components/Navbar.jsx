@@ -24,6 +24,8 @@ const Navbar = () => {
                     {user !== null && user.role === "admin" ? (
                         <Link className="nav-link" to="/addproducts">Add products</Link>) : ("")}
                     <Link className="nav-link" to="/aboutus">About us</Link>
+                    <Link className="nav-link" to="/order" >Order</Link>
+                    <Link className="nav-link" to="/cart" >My cart</Link>
                 </div>
 
                 {user ? (
